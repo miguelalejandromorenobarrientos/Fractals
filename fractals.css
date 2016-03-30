@@ -1,0 +1,202 @@
+
+html, body
+{
+	margin: 0px;
+	padding: 0px;
+	background-color: rgba(150,180,180,1);
+}
+
+fieldset
+{
+	border: 2px solid blue;
+	border-style: groove;
+	margin: 3px;
+}
+
+legend
+{
+	color: blue;
+	font-style: italic;
+}
+
+label
+{
+	cursor: pointer;
+}
+
+input[type="range"]
+{
+	width: 150px;
+	border-radius: 0px;
+	cursor: pointer;
+}
+
+input[type="number"]
+{
+	width: 50px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+input[type='button']
+{
+	background:linear-gradient(to bottom, #7bb 5%, #377 100%);
+	background-color:#7bb;
+	border-radius:12px;
+	border:1px solid #199;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffaa;
+	font-family:Georgia;
+	font-size:13px;
+	font-weight:bold;
+	padding: 4px 9px;
+	margin: 2px 5px;
+}
+input[type='button']:hover
+{
+	background:linear-gradient(to bottom, #9dd 5%, #599 100%);
+	background-color: #9dd;
+}
+input[type='button']:active
+{
+	position: relative;
+	top: 1px;
+}
+
+.value
+{
+	font-size: 12px;
+	font-style: italic;
+	vertical-align: top;
+}
+
+#divParams
+{
+	height: 100%;
+	width: 250px;
+	font-size: 13px;
+	border: none;
+	border-right: 2px solid blue;
+	display: inline-block;
+	background-color: #aaf;
+	margin-right: 4px;
+	box-shadow: 4px 0px 4px 1px black;
+	overflow-y: auto;
+}
+
+#divFractal
+{
+	width: 1000px;
+	height: 100%;
+	vertical-align: top;
+	display: inline-block;
+	margin: 1px;
+}
+
+#viewport input[type="text"]
+{
+	font-size: 12px;
+	width: 150px;
+}
+
+#container
+{
+	width: 100%;
+	height: 99vh;
+}
+
+#canvas
+{
+	width: 100%;
+	height: 95%;
+	cursor: move;
+}
+
+
+#navigator
+{
+	margin: 3px auto 3px auto;
+}
+#navigator td
+{
+	padding: 0px;
+}
+#navigator input[type="button"]
+{
+	padding: 0px;
+	margin: 0px;
+	width: 60px;
+	font-size: 16px;
+	border-radius: 0px;
+}
+#topleft
+{
+	border-radius: 20px 0px 0px 0px !important;
+}
+#topright
+{
+	border-radius: 0px 20px 0px 0px !important;
+}
+#bottomright
+{
+	border-radius: 0px 0px 20px 0px !important;
+}
+#bottomleft
+{
+	border-radius: 0px 0px 0px 20px !important;
+}
+
+input[type="button"].checkbutton
+{
+	font-size: 12px;
+	border-width: 2px;
+	border-style: outset;
+	padding: 2px;
+	margin: 3px;
+	border-radius: 6px;
+}
+
+#fractalType
+{
+	border-radius: 12px 6px 6px 12px;
+	padding: 2px 6px 2px 3px;
+	background: #aef;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 14px;
+	text-align: center;
+}
+
+#colorMode
+{
+	font-weight: bold;
+}
+#colorMode option
+{
+	padding: 4px;
+	color: black;
+	text-align: center;
+	font-style: italic;
+}
+
+#twoColors
+{
+	background: white;
+}
+
+#cyclicRGB
+{
+	background: linear-gradient( to right, red, green, blue );
+}
+
+#cyclicHSV
+{
+	background: linear-gradient( to right, #643d3d, #55643d, #3d645c, #453d64, #643d4c, #643d3e );
+}
+
+#logCyclicHSV
+{
+	background: linear-gradient( to right, #643d3d 40%, #55643d 70%, #3d645c 90%, #453d64 95%, #643d4c 98%, #643d3e 100% );
+}
+

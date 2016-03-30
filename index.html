@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Fractals</title>
+
+	<meta http-equiv="content-language" content="en"/>
+	<meta name="keyword" content="Fractal,Mandelbrot,Julia" />
+	<meta name="description" content="Online fractal generator. Author: Miguel Alejandro Moreno Barrientos" />
+	<meta name="author" content="Miguel Alejandro Moreno Barrientos" />
+	<meta name="publisher" content="Miguel Alejandro Moreno Barrientos" />
+	<meta name="copyright" content="Miguel Alejandro Moreno Barrientos" />
+	<meta name="distribution" content="Global" />
+	<meta name="audience" content="all" />
+	
+	<link rel="stylesheet" href="fractals.css"></link>
+    
+    <script src="fractals.js"></script>    
+    <script src="events.js"></script>
+    <script src="fractals_lib.js"></script>
+    <script src="FractalGenerator.js"></script>
+    <script src="colorFunctions.js"></script>
+    
+</head>
+
+<body>
+
+<div id="container">
+
+    <div id="divParams">
+    
+    	Time: <b><span id="time" title="updating time">---</span></b>s
+        
+        <fieldset style="text-align:center">
+
+        	<legend>Fractal type</legend>
+            <select id="fractalType">
+            	<option value="mandelbrot">Mandelbrot set</option>
+                <option value="julia">Julia set</option>
+            </select>
+
+            <fieldset>
+                <legend>Constant param</legend>
+                <table>
+                    <tr>
+                        <th><label for="re">Re:</label></th>
+                        <td><input type="text" id="re" size="10" tabindex="98" value="0.285"/></td>
+                        <td rowspan="2"><input id="captureParamC" type="button" class="checkbutton" value="Capture" tabindex="100" title="Capture param on canvas"/></td>
+                    </tr>
+                    <tr>
+                        <th><label for="im">Im:</label></th><td><input type="text" id="im" size="10" tabindex="99" value="-0.01"/></td>
+                    </tr>
+                </table>
+            </fieldset>
+
+        </fieldset>
+
+        <fieldset style="text-align:center">
+
+        	<legend>Fractal color mode</legend>
+            <select id="colorMode">
+            	<option id="cyclicHSV" value="cyclicHSV">HSV</option>
+                <option id="logCyclicHSV" value="logCyclicHSV">logarithmic HSV</option>
+            	<option id="cyclicRGB" value="cyclicRGB">RGB</option>
+                <option id="twoColors" value="twoColors">Two colors (only fractal)</option>
+            </select>
+
+        </fieldset>
+
+        <fieldset>
+        	<legend>Mouse</legend>
+            X: <b><span id="x"></span></b><br/>
+            Y: <b><span id="y"></span></b><br/>
+            Iterations: <b><span id="iter"></span></b>        
+        </fieldset>
+
+        <fieldset>
+            <legend>Quality</legend>
+            <p>
+                <label for="bailout">Threshold bailout</label>
+                <input id="bailout" type="number" min="0.1" max="10.0" step="0.1" value="2"/>
+            </p>
+            <p>
+                <label for="pixelSize">Pixel size</label><br/>
+                <input id="pixelSize" type="range" min="1" max="20" step="1" value="1"/>
+                <span class="value" id="pixelSizeValue"></span>
+            </p>
+            <p>
+                <label for="maxiter">Max iterations</label><br/>
+                <input id="maxiter" type="range" min="1" max="1000" step="1" value="100"/>
+                <span class="value" id="maxiterValue"></span>
+            </p>
+            <p>
+                <input id="smoothing" type="checkbox" checked/>
+                <label for="smoothing">Smoothing</label>
+            </p>
+        </fieldset>
+        
+        <fieldset id="viewport">
+            <legend>Viewport</legend>
+            <table>
+            	<tr>
+                	<th><label for="xmin">xmin:</label></th>
+                    <td><input id="xmin" type="text"/></td>
+                </tr>
+                <tr>
+                	<th><label for="xmax">xmax:</label></th>
+            		<td><input id="xmax" type="text"/></td>
+                </tr>
+                <tr>
+            		<th><label for="ymin">ymin:</label></th>
+		            <td><input id="ymin" type="text"/></td>
+                <tr>
+	                <th><label for="ymax">ymax:</label></th>
+		            <td><input id="ymax" type="text"/></td>
+                </tr>
+            	<tr>
+                	<th><label for="width">width:</label></th>
+		            <td><input id="width" type="text"/></td>
+                </tr>
+            	<tr>
+                	<th><label for="height">height:</label></th>
+		            <td><input id="height" type="text"/></td>
+                </tr>
+	            <tr>
+                	<th><label for="area">area:</label></th>
+		            <td><input id="area" type="text" readonly disabled/></td>
+                </tr>
+            </table>
+            <hr/>
+            <table id="navigator">
+            	<tr>
+                	<td><input id="topleft"  type="button" value="\"/></td>
+                	<td><input id="up" type="button" value="^"/></td>
+                	<td><input id="topright"  type="button" value="/"/></td>
+                </tr>
+            	<tr>
+                	<td><input id="left" type="button" value="<"/></td>
+			        <td><input id="reset" type="button" value="Reset"/></td>
+                	<td><input id="right" type="button" value=">"/></td>
+                </tr>
+            	<tr>
+                	<td><input id="bottomleft" type="button" value="/"/></td>
+                	<td><input id="down" type="button" value="v"/></td>
+                	<td><input id="bottomright"  type="button" value="\"/></td>
+                </tr>
+            </table>
+        </fieldset>
+        
+    </div>
+    
+    <div id="divFractal">
+        <canvas id="canvas" width="1000" height="600" style="border: 1px solid blue">Your browser doen't support canvas. Update browser.</canvas>
+    </div>
+
+</div>
+
+</body>
+
+</html>
